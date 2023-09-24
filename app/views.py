@@ -19,3 +19,8 @@ class ApiLoadFiles(APIView):
         input_file.save()
 
         return Response({'message': 'File uploaded successfully'}, status=status.HTTP_200_OK)
+
+    def get(self, request):
+        files = InputFile.objects.all()
+        serializer = InputFileSerializer(files, many=True)
+        return Response(serializer.data)
