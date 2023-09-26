@@ -1,10 +1,10 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from .models import InputFile
-from .serializers import InputFileSerializer
+from app.models import InputFile
+from app.serializers import InputFileSerializer
+from app.tasks import processing_task
 
 
 class ApiLoadFiles(APIView):
@@ -18,9 +18,13 @@ class ApiLoadFiles(APIView):
         input_file = InputFile(file=uploaded_file)
         input_file.save()
 
-        return Response({'message': 'File uploaded successfully'}, status=status.HTTP_200_OK)
+        # send to celery
+        task = processing_task.delay()
+
+        return Response({'message': 'File uploaded successfully'}, status=status.HTTP_201_CREATED)
 
     def get(self, request):
         files = InputFile.objects.all()
         serializer = InputFileSerializer(files, many=True)
+
         return Response(serializer.data)
