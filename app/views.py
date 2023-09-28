@@ -4,7 +4,7 @@ from rest_framework import status
 
 from app.models import InputFile
 from app.serializers import InputFileSerializer
-from app.tasks import processing_task
+from app.tasks import processing_file
 
 
 class ApiLoadFiles(APIView):
@@ -19,9 +19,10 @@ class ApiLoadFiles(APIView):
         input_file.save()
 
         # send to celery
-        task = processing_task.delay()
+        input_file_ser = InputFileSerializer(instance=input_file)
+        processing_file.delay(input_file_ser.data)
 
-        return Response({'message': 'File uploaded successfully'}, status=status.HTTP_201_CREATED)
+        return Response(input_file_ser.data, status=status.HTTP_201_CREATED)
 
     def get(self, request):
         files = InputFile.objects.all()

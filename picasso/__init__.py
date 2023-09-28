@@ -1,4 +1,4 @@
-from picasso.celery import celery_app
+from picasso.celery import app
 
 
-__all__ = ("celery_app",)
+__all__ = ("app",)

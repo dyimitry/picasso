@@ -6,7 +6,7 @@ from picasso.settings import CELERY_BROKER_URL, CELERY_RESULT_BACKEND
 
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "picasso.settings")
-celery_app = Celery("picasso")
-celery_app.config_from_object("django.conf:settings", namespace="CELERY")
-celery_app.autodiscover_tasks()
 
+app = Celery("picasso", broker=CELERY_BROKER_URL, backend=CELERY_RESULT_BACKEND)
+app.config_from_object("django.conf:settings", namespace="CELERY")
+app.autodiscover_tasks()

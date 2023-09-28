@@ -1,14 +1,9 @@
-from celery import shared_task
-
-from picasso import celery_app
-
-
-@celery_app.task(bind=True, ignore_result=True)
-def processing_task(key):
-    print(234234)
-    return f"task complete {key}"
+from picasso import app
+from app.models import InputFile
 
 
-@shared_task
-def add(x, y):
-    return x + y
+@app.task
+def processing_file(json_data):
+    file = InputFile.objects.get(file=json_data["file"])
+    file.processed = True
+    file.save()

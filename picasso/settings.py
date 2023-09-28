@@ -80,8 +80,8 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': os.getenv("POSTGRES_HOST", "127.0.0.1"),
+        'PORT': os.getenv("POSTGRES_PORT", "5432"),
     }
 }
 
@@ -128,12 +128,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-APP_ROOT = os.path.join(PROJECT_ROOT, 'app')
-APP_FILES_ROOT = os.path.join(APP_ROOT, 'files')
+MEDIA_ROOT = os.path.join(os.path.join(PROJECT_ROOT, ".."), "app")
+APP_FILES_ROOT = os.path.join("files")
 
 # REDIS related settings
-REDIS_HOST = '127.0.0.1'
-REDIS_PORT = '6379'
+REDIS_HOST = os.getenv("REDIS_HOST", "127.0.0.1")
+REDIS_PORT = os.getenv("REDIS_PORT", "6379")
 
 # CELERY
 CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'

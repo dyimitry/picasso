@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "predictive-guru-381820",
+  "private_key_id": "54489a52a1aafd89b3e4899d1dbb5a8ed21e3b33",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCsJ58JW3lvUUrX\nAK/M80XXNzt6mN/t9h19NgIO3S5TXAJUzGHgJexAhOnnvLcIVBw0HaTN64edVG9b\nh211ABmFeSYjLLKeGGP1uWkY+FJLxVjU6tB/NAf6j/HVxAsWvSQaRAxTGY4Et97Q\nKWZaFeoKjzOH7uLjCn3ZswT+zJlk/2H7yPqsLUvKEEX47b2gu6xLkiORaJGKseBP\nB6X3BNXHHYwO7dxSlMulwTyqsMhuUoZJzs8gjtCUPrJGBsIcmzb8/vt5kZk3/CNR\nh5felp8zk5ZDYH5kYhjaJRAtLOTuo8ItnMK3TwTSmUYNnZZdRRHE+JCxdT1+qja9\nnPiEhdsNAgMBAAECggEAQ8ICd/nfdV9fH/l+uCGF+xublvjFplDIsYgIzlXizl93\n8W1SFpmGf6xwrcualLYaNa73Ny89PMDHZZSLkdHcuaqBxrVohg4ehdAYnAHczkLZ\n4E+diXtuqoFuU08qeCQwqf/fg/OacKP4GCE7Tjiy2b4cL6Pn/CmceAtca3cW5udy\nGxZLm7esx5lDR52ae+C2e+OY0k2MoinvfTfIkUdAkz0mdl2SE2OYAFibSuny/2w/\nGJcC/fRgIcStz5PnizmYRyZRQCEA68J62ZmbTCe4iNWWNhJVKucqgk/pJrx7lXfh\n2tZjkl4YsPhKPM91mMCUhc6dj/j5WlIC9nynxbbURwKBgQDWnLrGGBP+JpVKFQ5t\n48YuvbUfTkfK6Ui0oFTQ1ojbI2WHPyzcp3+uwq1o0lLE9KJzGPitlLjQwPjDpoiP\nxcNwQkVy5O4Rx2MdQSuAT3Unnf9IuEYL6W0jzN4mNcf3lCC8uzWFhNc2LiHnSRfp\n1zgqJufipA9XbYCieuWa1j8Y8wKBgQDNWss6MNSJKJ0NI+l0E8R23SzJ2NeDXpFn\nRzE250VSH/uCTtK5gHWpEAejhGSQj0lH4IpZ2Usz9nUurcRxFMxbpob5QU3siLw/\n/O7J21n4jxAHBcfjFl9rVBW302vU3XeZje6DH5CfgUJL3YKl2OTruO3+piwFKvUx\nvn6iZmQ7/wKBgCCb8+1Bn1gQuMJm7KhZ4bUccjbtiA8W30tCyWBqGKVjfXvNZ52n\nfckqH3s76gOvQDfI5ZBKdsKRb7saxMlDvWyDRVYt3taouzCoxFlcuWppoW6FQW9x\n6nl0GZUoutetlEPZFkrRYnoDDHe+LXoEj64n9zgCwaoBI3iMv/KE91VtAoGBAIbz\n/Qyf3HzK2PMyv5AOEZW/4lhADdmCg3Ho4lnfgLno1MOdA3TvC+Pv6eU281PhJlp7\nINDNMVPTyszDW46pCWfNt3QEy63/ah9vHIpBgg4MDo9e6C6/nDOPjbpB0eKRLLEY\nCj/XtZZtPuFWkC5nrIGRBa7NC67VvU9UjioxufuHAoGAJDNLu/uHES4qchX89nX1\nonlQPjNPCg5wUQVzm3DLI/IPDGdzqCTg4uWLwg0GvvEw5DbwlXSiXso/aWvrPKcs\nAmLWHA7Favc5E+LDsXB7s+jEuqmGYN+BIt0LtGZDxJshPpBXu/b2xv8tFynq2NkT\n5xpfTul7zvGBHXusW8ElzTQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "practicum@predictive-guru-381820.iam.gserviceaccount.com",
+  "client_id": "117958271778935161557",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/practicum%40predictive-guru-381820.iam.gserviceaccount.com"
+}
