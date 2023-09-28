@@ -13,8 +13,10 @@ services:
       - POSTGRES_HOST=postgres-db
       - POSTGRES_PORT=5432
     depends_on:
-      - redis-db
-      - postgres-db
+      redis-db:
+        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
 
   worker:
     build: .
@@ -26,8 +28,23 @@ services:
       - POSTGRES_HOST=postgres-db
       - POSTGRES_PORT=5432
     depends_on:
-      - redis-db
-      - postgres-db
+      redis-db:
+        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
+
+  migration:
+    build: .
+    command: python3 manage.py migrate
+    environment:
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+      - REDIS_HOST=redis-db
+      - REDIS_PORT=6379
+      - POSTGRES_HOST=postgres-db
+      - POSTGRES_PORT=5432
+    depends_on:
+      postgres-db:
+        condition: service_healthy
 
   postgres-db:
     image: postgres:14
@@ -37,6 +54,11 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - postgres-db:/var/lib/postgresql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 3s
+      retries: 2
 
   redis-db:
     image: "redis"
@@ -48,7 +70,7 @@ services:
       timeout: 3s
       retries: 3
 
-  redis-commander:
+  redis-ui:
     image: rediscommander/redis-commander:latest
     environment:
       REDIS_HOSTS: redis-db
@@ -58,6 +80,9 @@ services:
       HTTP_PASSWORD: root
     ports:
       - "8081:8081"
+    depends_on:
+      redis-db:
+        condition: service_healthy
 
 volumes:
   postgres-db:
